@@ -1,0 +1,28 @@
+{
+  "version": 1,
+  "codex_command": ["codex"],
+  "tiers": [
+    {"name": "light", "model": "gpt-6-luna", "effort": "max"},
+    {"name": "standard", "model": "gpt-6.1-sol", "effort": "medium"},
+    {"name": "deep", "model": "gpt-6.1-sol", "effort": "high"},
+    {"name": "ceiling", "model": "gpt-6-astra", "effort": "medium"}
+  ],
+  "agents": {
+    "scout": {"tier": "light", "sandbox": "read-only", "capabilities": ["locate", "find-usages", "map-structure"]},
+    "extractor": {"tier": "light", "sandbox": "read-only", "capabilities": ["extract", "classify", "summarise"]},
+    "mechanic": {"tier": "standard", "sandbox": "workspace-write", "capabilities": ["mechanical-edit", "rename", "config-change"]},
+    "builder": {"tier": "standard", "sandbox": "workspace-write", "capabilities": ["implement-from-plan", "write-tests", "fix-bug"]},
+    "sage": {"tier": "deep", "sandbox": "read-only", "capabilities": ["architecture", "debugging", "deep-review"]}
+  },
+  "planner": {"tier": "standard"},
+  "reviewer": {"tier": "deep"},
+  "checks": [],
+  "policy": {
+    "max_tasks": 8,
+    "max_attempts": 3,
+    "max_codex_calls": 24,
+    "max_run_seconds": 1800,
+    "codex_timeout_seconds": 600,
+    "check_timeout_seconds": 120
+  }
+}

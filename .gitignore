@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+.codex/router-runs/
+.codex/model-router.lock
+.codex/model-router-active.json
+work/
+dist/
